@@ -4879,13 +4879,6 @@ function MacLib:Window(Settings)
 	function WindowFunctions:GetAcrylicBlurState()
 		return acrylicBlur
 	end
-
-	function WindowFunctions:SetUserInfoState(State)
-		return State
-	end
-	function WindowFunctions:GetUserInfoState(State)
-		return State
-	end
 	
 	function WindowFunctions:SetSize(Size)
 		base.Size = Size
