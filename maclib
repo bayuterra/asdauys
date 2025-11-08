@@ -1304,7 +1304,7 @@ function MacLib:Window(Settings)
 			left.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			left.BorderSizePixel = 0
 			left.Position = UDim2.fromScale(0.512, 0)
-			left.Size = UDim2.new(0.5, -10, 0, 0)
+			left.Size = UDim2.new(1, -10, -10, 0)
 
 			local leftUIListLayout = Instance.new("UIListLayout")
 			leftUIListLayout.Name = "LeftUIListLayout"
@@ -1323,7 +1323,7 @@ function MacLib:Window(Settings)
 			right.BorderSizePixel = 0
 			right.LayoutOrder = 1
 			right.Position = UDim2.fromScale(0.512, 0)
-			right.Size = UDim2.new(0.5, -10, 0, 0)
+			right.Size = UDim2.new(1, -10, -10, 0)
 
 			local rightUIListLayout = Instance.new("UIListLayout")
 			rightUIListLayout.Name = "RightUIListLayout"
