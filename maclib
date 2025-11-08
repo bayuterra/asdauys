@@ -1314,25 +1314,6 @@ function MacLib:Window(Settings)
 
 			left.Parent = elementsScrolling
 
-			local right = Instance.new("Frame")
-			right.Name = "Right"
-			right.AutomaticSize = Enum.AutomaticSize.Y
-			right.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-			right.BackgroundTransparency = 1
-			right.BorderColor3 = Color3.fromRGB(0, 0, 0)
-			right.BorderSizePixel = 0
-			right.LayoutOrder = 1
-			right.Position = UDim2.fromScale(0.512, 0)
-			right.Size = UDim2.new(1, -10, -10, 0)
-
-			local rightUIListLayout = Instance.new("UIListLayout")
-			rightUIListLayout.Name = "RightUIListLayout"
-			rightUIListLayout.Padding = UDim.new(0, 15)
-			rightUIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-			rightUIListLayout.Parent = right
-
-			right.Parent = elementsScrolling
-
 			elementsScrolling.Parent = elements1
 
 			function TabFunctions:Section(Settings)
@@ -1346,7 +1327,7 @@ function MacLib:Window(Settings)
 				section.BorderSizePixel = 0
 				section.Position = UDim2.fromScale(0, 6.78e-08)
 				section.Size = UDim2.fromScale(1, 0)
-				section.Parent = Settings.Side == "Left" and left or right
+				section.Parent = left
 
 				local sectionUICorner = Instance.new("UICorner")
 				sectionUICorner.Name = "SectionUICorner"
