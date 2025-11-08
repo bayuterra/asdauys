@@ -419,16 +419,6 @@ function MacLib:Window(Settings)
 	sidebarGroup.Position = UDim2.fromOffset(0, 91)
 	sidebarGroup.Size = UDim2.new(1, 0, 1, -91)
 
-	local userInfo = Instance.new("Frame")
-	userInfo.Name = "UserInfo"
-	userInfo.AnchorPoint = Vector2.new(0, 1)
-	userInfo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	userInfo.BackgroundTransparency = 1
-	userInfo.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	userInfo.BorderSizePixel = 0
-	userInfo.Position = UDim2.fromScale(0, 1)
-	userInfo.Size = UDim2.new(1, 0, 0, 107)
-
 	local informationGroup = Instance.new("Frame")
 	informationGroup.Name = "InformationGroup"
 	informationGroup.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -543,18 +533,6 @@ function MacLib:Window(Settings)
 	username.LayoutOrder = 1
 	username.Parent = userAndDisplayFrame
 	username.Size = UDim2.fromScale(1,0)
-
-	userAndDisplayFrame.Parent = informationGroup
-
-	informationGroup.Parent = userInfo
-
-	local userInfoUIPadding = Instance.new("UIPadding")
-	userInfoUIPadding.Name = "UserInfoUIPadding"
-	userInfoUIPadding.PaddingLeft = UDim.new(0, 10)
-	userInfoUIPadding.PaddingRight = UDim.new(0, 10)
-	userInfoUIPadding.Parent = userInfo
-
-	userInfo.Parent = sidebarGroup
 
 	local sidebarGroupUIPadding = Instance.new("UIPadding")
 	sidebarGroupUIPadding.Name = "SidebarGroupUIPadding"
