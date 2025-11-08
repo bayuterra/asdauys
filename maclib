@@ -4880,24 +4880,9 @@ function MacLib:Window(Settings)
 		return acrylicBlur
 	end
 
-	local function _SetUserInfoState(State)
-
-	end
-
-	local showUserInfo
-	if Settings.ShowUserInfo ~= nil then
-		showUserInfo = true
-	else
-		showUserInfo = true
-	end
-
-	_SetUserInfoState(showUserInfo)
-
-	function WindowFunctions:SetUserInfoState(State)
-		_SetUserInfoState(State)
-	end
+	
 	function WindowFunctions:GetUserInfoState(State)
-		return showUserInfo
+		return State
 	end
 	
 	function WindowFunctions:SetSize(Size)
