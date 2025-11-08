@@ -4881,22 +4881,12 @@ function MacLib:Window(Settings)
 	end
 
 	local function _SetUserInfoState(State)
-		if State then
-			headshot.Image = (isReady and headshotImage) or "rbxassetid://0"
-			username.Text = "@"..LocalPlayer.Name
-			displayName.Text = LocalPlayer.DisplayName
-		else
-			headshot.Image = assets.userInfoBlurred
-			local nameLength = #LocalPlayer.Name
-			local displayNameLength = #LocalPlayer.DisplayName
-			username.Text = "@"..string.rep(".", nameLength)
-			displayName.Text = string.rep(".", displayNameLength)
-		end
+
 	end
 
 	local showUserInfo
 	if Settings.ShowUserInfo ~= nil then
-		showUserInfo = Settings.ShowUserInfo
+		showUserInfo = true
 	else
 		showUserInfo = true
 	end
