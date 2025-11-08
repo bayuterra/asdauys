@@ -1418,7 +1418,7 @@ function MacLib:Window(Settings)
 			left.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			left.BorderSizePixel = 0
 			left.Position = UDim2.fromScale(0.512, 0)
-			left.Size = UDim2.new(0.5, -10, 0, 0)
+			left.Size = UDim2.new(1, -10, 0, 0)
 
 			local leftUIListLayout = Instance.new("UIListLayout")
 			leftUIListLayout.Name = "LeftUIListLayout"
@@ -5020,65 +5020,67 @@ function MacLib:Window(Settings)
 	windowState = true
 
 
-	local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
+	-- 	local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
 
-local gui = Instance.new("ScreenGui")
-gui.Name = "FloatingUI"
-gui.IgnoreGuiInset = true
-gui.ResetOnSpawn = false
-gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-gui.Parent = PlayerGui
+	-- local gui = Instance.new("ScreenGui")
+	-- gui.Name = "FloatingUI"
+	-- gui.IgnoreGuiInset = true
+	-- gui.ResetOnSpawn = false
+	-- gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+	-- gui.Parent = PlayerGui
 
--- ⚙️ Floating Button
-local floatButton = Instance.new("TextButton")
-floatButton.Size = UDim2.new(0, 60, 0, 60)
-floatButton.Position = UDim2.new(0.05, 0, 0.5, 0)
-floatButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-floatButton.Text = "◉"
-floatButton.TextScaled = true
-floatButton.TextColor3 = Color3.new(1, 1, 1)
-floatButton.Font = Enum.Font.GothamBold
-floatButton.ZIndex = 10
-floatButton.Parent = gui
-Instance.new("UICorner", floatButton).CornerRadius = UDim.new(1, 0)
-floatButton.AutoButtonColor = false
+	-- -- ⚙️ Floating Button
+	-- local floatButton = Instance.new("TextButton")
+	-- floatButton.Size = UDim2.new(0, 60, 0, 60)
+	-- floatButton.Position = UDim2.new(0.05, 0, 0.5, 0)
+	-- floatButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	-- floatButton.Text = "◉"
+	-- floatButton.TextScaled = true
+	-- floatButton.TextColor3 = Color3.new(1, 1, 1)
+	-- floatButton.Font = Enum.Font.GothamBold
+	-- floatButton.ZIndex = 10
+	-- floatButton.Parent = gui
+	-- Instance.new("UICorner", floatButton).CornerRadius = UDim.new(1, 0)
+	-- floatButton.AutoButtonColor = false
 
--- 🖱️ Draggable
-local function makeDraggable(frame, dragHandle)
-	local dragging = false
-	local dragStart, startPos
-	dragHandle.InputBegan:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-			dragging = true
-			dragStart = UserInputService:GetMouseLocation()
-			startPos = frame.Position
-		end
-	end)
-	UserInputService.InputEnded:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-			dragging = false
-		end
-	end)
-	RunService.RenderStepped:Connect(function()
-		if dragging then
-			local mousePos = UserInputService:GetMouseLocation()
-			local delta = mousePos - dragStart
-			frame.Position = UDim2.new(
-				startPos.X.Scale,
-				startPos.X.Offset + delta.X,
-				startPos.Y.Scale,
-				startPos.Y.Offset + delta.Y
-			)
-		end
-	end)
-end
-makeDraggable(floatButton, floatButton)
+	-- -- 🖱️ Draggable
+	-- local function makeDraggable(frame, dragHandle)
+	-- 	local dragging = false
+	-- 	local dragStart, startPos
+	-- 	dragHandle.InputBegan:Connect(function(input)
+	-- 		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+	-- 			dragging = true
+	-- 			dragStart = UserInputService:GetMouseLocation()
+	-- 			startPos = frame.Position
+	-- 		end
+	-- 	end)
+	-- 	UserInputService.InputEnded:Connect(function(input)
+	-- 		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+	-- 			dragging = false
+	-- 		end
+	-- 	end)
+	-- 	RunService.RenderStepped:Connect(function()
+	-- 		if dragging then
+	-- 			local mousePos = UserInputService:GetMouseLocation()
+	-- 			local delta = mousePos - dragStart
+	-- 			frame.Position = UDim2.new(
+	-- 				startPos.X.Scale,
+	-- 				startPos.X.Offset + delta.X,
+	-- 				startPos.Y.Scale,
+	-- 				startPos.Y.Offset + delta.Y
+	-- 			)
+	-- 		end
+	-- 	end)
+	-- end
+	-- makeDraggable(floatButton, floatButton)
 
-local IconMain = true
-floatButton.MouseButton1Click:Connect(function()
-	IconMain = not IconMain
-	WindowFunctions:SetState(IconMain)
-end)
+	-- local IconMain = true
+	-- floatButton.MouseButton1Click:Connect(function()
+	-- 	IconMain = not IconMain
+	-- 	WindowFunctions:SetState(IconMain)
+	-- end)
+
+	
 	return WindowFunctions
 end
 
