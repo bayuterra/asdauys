@@ -1626,34 +1626,26 @@ function MacLib:Window(Settings)
 
 					toggle1.Parent = toggle
 
-					local toggle1Transparency = {Enabled = 0, Disabled = 0.5}
-					local togglerHeadTransparency = {Enabled = 0, Disabled = 0.85}
+					local toggle1Transparency = { Enabled = 0, Disabled = 0.5 }
+					local togglerHeadTransparency = { Enabled = 0, Disabled = 0.85 }
 
 					local TweenSettings = {
 						Info = TweenInfo.new(0.15, Enum.EasingStyle.Quad),
-
 						EnabledPosition = UDim2.new(1, 0, 0.5, 0),
 						DisabledPosition = UDim2.new(0.5, 0, 0.5, 0),
 					}
 
 					local togglebool = ToggleFunctions.Settings.Default
+					local locked = false -- 🔒 state untuk lock
 
 					local function NewState(State, callback)
-						local transparencyValues = State and {toggle1Transparency.Enabled, togglerHeadTransparency.Enabled}
-							or {toggle1Transparency.Disabled, togglerHeadTransparency.Disabled}
+						local transparencyValues = State and { toggle1Transparency.Enabled, togglerHeadTransparency.Enabled }
+							or { toggle1Transparency.Disabled, togglerHeadTransparency.Disabled }
 						local position = State and TweenSettings.EnabledPosition or TweenSettings.DisabledPosition
 
-						Tween(toggle1, TweenSettings.Info, {
-							ImageTransparency = transparencyValues[1]
-						}):Play()
-
-						Tween(togglerHead, TweenSettings.Info, {
-							ImageTransparency = transparencyValues[2]
-						}):Play()
-
-						Tween(togglerHead, TweenSettings.Info, {
-							Position = position
-						}):Play()
+						Tween(toggle1, TweenSettings.Info, { ImageTransparency = transparencyValues[1] }):Play()
+						Tween(togglerHead, TweenSettings.Info, { ImageTransparency = transparencyValues[2] }):Play()
+						Tween(togglerHead, TweenSettings.Info, { Position = position }):Play()
 
 						ToggleFunctions.State = State
 						if callback then
@@ -1664,6 +1656,7 @@ function MacLib:Window(Settings)
 					NewState(togglebool)
 
 					local function Toggle()
+						if locked then return end -- 🔒 kalo lagi dikunci, stop di sini
 						togglebool = not togglebool
 						NewState(togglebool, ToggleFunctions.Settings.Callback)
 					end
@@ -1709,6 +1702,7 @@ function MacLib:Window(Settings)
 					if Flag then
 						MacLib.Options[Flag] = ToggleFunctions
 					end
+
 					return ToggleFunctions
 				end
 
