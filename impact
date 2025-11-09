@@ -207,9 +207,16 @@ function Library:Create(xHubName,xGameName)
         TabButton.TextSize = 14.000
         TabButton.ZIndex = 2
 
-        Size()
-        Tab.ChildAdded:Connect(Size)
-        Tab.ChildRemoved:Connect(Size)
+        local function UpdateCanvas()
+            task.wait() -- tunggu frame render biar ukuran akurat
+            Tab.CanvasSize = UDim2.new(0, 0, 0, TabListLayout.AbsoluteContentSize.Y + 10)
+        end
+
+        -- panggil saat pertama kali
+        UpdateCanvas()
+
+        -- update otomatis kalau layout berubah
+        TabListLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(UpdateCanvas)
 
         if xVisible then 
             TabButton.BackgroundColor3 = Color3.fromRGB(55, 74, 251)
