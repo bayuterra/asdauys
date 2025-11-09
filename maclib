@@ -459,7 +459,7 @@ function MacLib:Window(Settings)
 	sidebarGroupUIPadding.Name = "SidebarGroupUIPadding"
 	sidebarGroupUIPadding.PaddingLeft = UDim.new(0, 10)
 	sidebarGroupUIPadding.PaddingRight = UDim.new(0, 10)
-	sidebarGroupUIPadding.PaddingTop = UDim.new(0, 31)
+	sidebarGroupUIPadding.PaddingTop = UDim.new(0, 10)
 	sidebarGroupUIPadding.Parent = sidebarGroup
 
 	local tabSwitchers = Instance.new("Frame")
@@ -468,7 +468,7 @@ function MacLib:Window(Settings)
 	tabSwitchers.BackgroundTransparency = 1
 	tabSwitchers.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	tabSwitchers.BorderSizePixel = 0
-	tabSwitchers.Size = UDim2.new(1, 0, 1, 1)
+	tabSwitchers.Size = UDim2.new(1, 0, 1, -107)
 
 	local tabSwitchersScrollingFrame = Instance.new("ScrollingFrame")
 	tabSwitchersScrollingFrame.Name = "TabSwitchersScrollingFrame"
