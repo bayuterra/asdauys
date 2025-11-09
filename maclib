@@ -2002,7 +2002,7 @@ function MacLib:Window(Settings)
 					inputBox.ClipsDescendants = true
 					inputBox.LayoutOrder = 1
 					inputBox.Position = UDim2.fromScale(1, 0.5)
-					inputBox.Size = UDim2.fromOffset(25, 25)
+					inputBox.Size = UDim2.fromOffset(35, 25)
 					inputBox.TextXAlignment = Enum.TextXAlignment.Right
 
 					local inputBoxUICorner = Instance.new("UICorner")
