@@ -1433,7 +1433,7 @@ function MacLib:Window(Settings)
 				section.Position = UDim2.fromScale(0, 6.78e-08)
 				section.Size = UDim2.fromScale(1, 0)
 				section.ClipsDescendants = true
-				section.Parent = Settings.Side == "Left" and left or right
+				section.Parent = left
 
 				local sectionUICorner = Instance.new("UICorner")
 				sectionUICorner.Name = "SectionUICorner"
