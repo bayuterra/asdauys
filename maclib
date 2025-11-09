@@ -5144,11 +5144,11 @@ function MacLib:Window(Settings)
 	local function ToggleMenu()
 		local state = not WindowFunctions:GetState()
 		WindowFunctions:SetState(state)
-		WindowFunctions:Notify({
-			Title = Settings.Title,
-			Description = (state and "Maximized " or "Minimized ") .. "the menu. Use " .. tostring(MenuKeybind.Name) .. " to toggle it.",
-			Lifetime = 5
-		})
+		-- WindowFunctions:Notify({
+		-- 	Title = Settings.Title,
+		-- 	Description = (state and "Maximized " or "Minimized ") .. "the menu. Use " .. tostring(MenuKeybind.Name) .. " to toggle it.",
+		-- 	Lifetime = 5
+		-- })
 	end
 
 	UserInputService.InputEnded:Connect(function(inp, gpe)
