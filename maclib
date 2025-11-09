@@ -1390,7 +1390,7 @@ function MacLib:Window(Settings)
 			left.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			left.BorderSizePixel = 0
 			left.Position = UDim2.fromScale(0.512, 0)
-			left.Size = UDim2.new(0.5, -10, 0, 0)
+			left.Size = UDim2.new(1, -10, 0, 0)
 
 			local leftUIListLayout = Instance.new("UIListLayout")
 			leftUIListLayout.Name = "LeftUIListLayout"
@@ -1433,7 +1433,7 @@ function MacLib:Window(Settings)
 				section.Position = UDim2.fromScale(0, 6.78e-08)
 				section.Size = UDim2.fromScale(1, 0)
 				section.ClipsDescendants = true
-				section.Parent = Settings.Side == "Left" and left or right
+				section.Parent = Left
 
 				local sectionUICorner = Instance.new("UICorner")
 				sectionUICorner.Name = "SectionUICorner"
