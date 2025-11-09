@@ -1255,7 +1255,7 @@ function MacLib:Window(Settings)
 			tabSwitcher.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json")
 			tabSwitcher.Text = ""
 			tabSwitcher.TextColor3 = Color3.fromRGB(0, 0, 0)
-			tabSwitcher.TextSize = 14
+			tabSwitcher.TextSize = 15
 			tabSwitcher.AutoButtonColor = false
 			tabSwitcher.AnchorPoint = Vector2.new(0.5, 0)
 			tabSwitcher.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -1477,7 +1477,7 @@ function MacLib:Window(Settings)
 					buttonInteract.FontFace = Font.new(assets.interFont)
 					buttonInteract.RichText = true
 					buttonInteract.TextColor3 = Color3.fromRGB(255, 255, 255)
-					buttonInteract.TextSize = 15
+					buttonInteract.TextSize = 16
 					buttonInteract.TextTransparency = 0.5
 					buttonInteract.TextTruncate = Enum.TextTruncate.AtEnd
 					buttonInteract.TextXAlignment = Enum.TextXAlignment.Left
@@ -1572,7 +1572,7 @@ function MacLib:Window(Settings)
 					toggleName.Text = ToggleFunctions.Settings.Name
 					toggleName.RichText = true
 					toggleName.TextColor3 = Color3.fromRGB(255, 255, 255)
-					toggleName.TextSize = 15
+					toggleName.TextSize = 16
 					toggleName.TextTransparency = 0.5
 					toggleName.TextTruncate = Enum.TextTruncate.AtEnd
 					toggleName.TextXAlignment = Enum.TextXAlignment.Left
@@ -1711,7 +1711,7 @@ function MacLib:Window(Settings)
 					sliderName.Text = SliderFunctions.Settings.Name
 					sliderName.RichText = true
 					sliderName.TextColor3 = Color3.fromRGB(255, 255, 255)
-					sliderName.TextSize = 15
+					sliderName.TextSize = 16
 					sliderName.TextTransparency = 0.5
 					sliderName.TextTruncate = Enum.TextTruncate.AtEnd
 					sliderName.TextXAlignment = Enum.TextXAlignment.Left
@@ -1739,7 +1739,7 @@ function MacLib:Window(Settings)
 					sliderValue.Name = "SliderValue"
 					sliderValue.FontFace = Font.new(assets.interFont)
 					sliderValue.TextColor3 = Color3.fromRGB(255, 255, 255)
-					sliderValue.TextSize = 14
+					sliderValue.TextSize = 15
 					sliderValue.TextTransparency = 0.1
 					--sliderValue.TextTruncate = Enum.TextTruncate.AtEnd
 					sliderValue.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -1972,7 +1972,7 @@ function MacLib:Window(Settings)
 					inputName.Text = InputFunctions.Settings.Name
 					inputName.RichText = true
 					inputName.TextColor3 = Color3.fromRGB(255, 255, 255)
-					inputName.TextSize = 15
+					inputName.TextSize = 16
 					inputName.TextTransparency = 0.5
 					inputName.TextTruncate = Enum.TextTruncate.AtEnd
 					inputName.TextXAlignment = Enum.TextXAlignment.Left
@@ -1991,7 +1991,7 @@ function MacLib:Window(Settings)
 					inputBox.FontFace = Font.new(assets.interFont)
 					inputBox.Text = "Hello world!"
 					inputBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-					inputBox.TextSize = 14
+					inputBox.TextSize = 15
 					inputBox.TextTransparency = 0.1
 					inputBox.AnchorPoint = Vector2.new(1, 0.5)
 					inputBox.AutomaticSize = Enum.AutomaticSize.X
@@ -2002,7 +2002,7 @@ function MacLib:Window(Settings)
 					inputBox.ClipsDescendants = true
 					inputBox.LayoutOrder = 1
 					inputBox.Position = UDim2.fromScale(1, 0.5)
-					inputBox.Size = UDim2.fromOffset(21, 21)
+					inputBox.Size = UDim2.fromOffset(25, 25)
 					inputBox.TextXAlignment = Enum.TextXAlignment.Right
 
 					local inputBoxUICorner = Instance.new("UICorner")
@@ -2336,7 +2336,7 @@ function MacLib:Window(Settings)
 					interact.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json")
 					interact.Text = ""
 					interact.TextColor3 = Color3.fromRGB(0, 0, 0)
-					interact.TextSize = 14
+					interact.TextSize = 16
 					interact.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 					interact.BackgroundTransparency = 1
 					interact.BorderColor3 = Color3.fromRGB(0, 0, 0)
