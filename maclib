@@ -5162,7 +5162,7 @@ function MacLib:Window(Settings)
 	exit.MouseButton1Click:Connect(function()
 		WindowFunctions:Dialog({
 			Title = Settings.Title,
-			Description = "Are you sure you want to exit the menu? You will lose any unsaved configurations.",
+			Description = "Are you sure you want to exit the menu?",
 			Buttons = {
 				{
 					Name = "Confirm",
