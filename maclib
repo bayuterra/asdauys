@@ -1687,6 +1687,25 @@ function MacLib:Window(Settings)
 						toggle.Visible = State
 					end
 
+					-- 🔒🔓 Lock/Unlock Feature
+					function ToggleFunctions:Lock()
+						locked = true
+						toggle1.Active = false
+						toggle1.AutoButtonColor = false
+						toggle1.Selectable = false
+						togglerHead.ImageColor3 = Color3.fromRGB(180, 180, 180) -- abu biar keliatan disable
+						togglerHead.ImageTransparency = 0.4
+					end
+
+					function ToggleFunctions:Unlock()
+						locked = false
+						toggle1.Active = true
+						toggle1.AutoButtonColor = true
+						toggle1.Selectable = true
+						togglerHead.ImageColor3 = Color3.fromRGB(255, 255, 255)
+						togglerHead.ImageTransparency = 0.8
+					end
+
 					if Flag then
 						MacLib.Options[Flag] = ToggleFunctions
 					end
