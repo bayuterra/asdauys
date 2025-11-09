@@ -459,7 +459,7 @@ function MacLib:Window(Settings)
 	sidebarGroupUIPadding.Name = "SidebarGroupUIPadding"
 	sidebarGroupUIPadding.PaddingLeft = UDim.new(0, 10)
 	sidebarGroupUIPadding.PaddingRight = UDim.new(0, 10)
-	sidebarGroupUIPadding.PaddingTop = UDim.new(0, 31)
+	sidebarGroupUIPadding.PaddingTop = UDim.new(0, 10)
 	sidebarGroupUIPadding.Parent = sidebarGroup
 
 	local tabSwitchers = Instance.new("Frame")
@@ -1390,7 +1390,7 @@ function MacLib:Window(Settings)
 			left.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			left.BorderSizePixel = 0
 			left.Position = UDim2.fromScale(0.512, 0)
-			left.Size = UDim2.new(0.5, -10, 0, 0)
+			left.Size = UDim2.new(1, -10, -10, 0)
 
 			local leftUIListLayout = Instance.new("UIListLayout")
 			leftUIListLayout.Name = "LeftUIListLayout"
@@ -5191,7 +5191,7 @@ function MacLib:Window(Settings)
 	end
 
 	local function _SetUserInfoState(State)
-		
+
 	end
 
 	local showUserInfo
