@@ -1921,6 +1921,8 @@ function MacLib:Window(Settings)
 					end)
 
 					local function updateSliderBarSize()
+						if not (sliderElementsUIListLayout and sliderValue and sliderName and sliderBar and baseUIScale) then return end
+						
 						local padding = sliderElementsUIListLayout.Padding.Offset
 						local sliderValueWidth = sliderValue.AbsoluteSize.X
 						local sliderNameWidth = sliderName.AbsoluteSize.X
