@@ -1922,7 +1922,7 @@ function MacLib:Window(Settings)
 
 					local function updateSliderBarSize()
 						if not (sliderElementsUIListLayout and sliderValue and sliderName and sliderBar and baseUIScale) then return end
-						
+
 						local padding = sliderElementsUIListLayout.Padding.Offset
 						local sliderValueWidth = sliderValue.AbsoluteSize.X
 						local sliderNameWidth = sliderName.AbsoluteSize.X
@@ -2323,7 +2323,7 @@ function MacLib:Window(Settings)
 					dropdown.BackgroundTransparency = 0.985
 					dropdown.BorderColor3 = Color3.fromRGB(0, 0, 0)
 					dropdown.BorderSizePixel = 0
-					dropdown.Size = UDim2.new(1, 0, 0, 38)
+					dropdown.Size = UDim2.new(1, 0, 0, 45)
 					dropdown.Parent = section
 					dropdown.ClipsDescendants = true
 
@@ -2343,7 +2343,7 @@ function MacLib:Window(Settings)
 					interact.BackgroundTransparency = 1
 					interact.BorderColor3 = Color3.fromRGB(0, 0, 0)
 					interact.BorderSizePixel = 0
-					interact.Size = UDim2.new(1, 0, 0, 38)
+					interact.Size = UDim2.new(1, 0, 0, 45)
 					interact.Parent = dropdown
 
 					local dropdownName = Instance.new("TextLabel")
@@ -2361,7 +2361,7 @@ function MacLib:Window(Settings)
 					dropdownName.BackgroundTransparency = 1
 					dropdownName.BorderColor3 = Color3.fromRGB(0, 0, 0)
 					dropdownName.BorderSizePixel = 0
-					dropdownName.Size = UDim2.new(1, -20, 0, 38)
+					dropdownName.Size = UDim2.new(1, -20, 0, 45)
 					dropdownName.Parent = dropdown
 
 					local dropdownUIStroke = Instance.new("UIStroke")
