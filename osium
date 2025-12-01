@@ -192,27 +192,30 @@ local destructionHooks = {}
         end)
 
         pcall(function ()
-            local dragging, dragInput, dragStart, startPos
+            local IsDragging = false
+            local dragInput
+            local StartingPoint
+            local oldPos
 
             local function update(input)
-                local delta = input.Position - dragStart
+                local delta = input.Position - StartingPoint
                 top.Position = UDim2.new(
-                    startPos.X.Scale,
-                    startPos.X.Offset + delta.X,
-                    startPos.Y.Scale,
-                    startPos.Y.Offset + delta.Y
+                    oldPos.X.Scale,
+                    oldPos.X.Offset + delta.X,
+                    oldPos.Y.Scale,
+                    oldPos.Y.Offset + delta.Y
                 )
             end
 
-            top.InputBegan:Connect(function(input)
-                if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-                    dragging = true
-                    dragStart = input.Position
-                    startPos = top.Position
+            top.InputBegan:Connect(function (input)
+                if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                    IsDragging = true
+                    StartingPoint = input.Position
+                    oldPos = top.Position
 
-                    input.Changed:Connect(function()
+                    input.Changed:Connect(function ()
                         if input.UserInputState == Enum.UserInputState.End then
-                            dragging = false
+                            IsDragging = false
                         end
                     end)
                 end
@@ -224,8 +227,8 @@ local destructionHooks = {}
                 end
             end)
 
-            UserInputService.InputChanged:Connect(function(input)
-                if input == dragInput and dragging then
+            UserInputService.InputChanged:Connect(function (input)
+                if input == dragInput and IsDragging then
                     update(input)
                 end
             end)
