@@ -714,7 +714,6 @@ function OrionLib:MakeWindow(WindowConfig)
 
 		local TabFrame = SetChildren(SetProps(MakeElement("Button"), {
 			Size = UDim2.new(1, 0, 0, 40),
-            BackgroundTransparency = 0.25,
 			Parent = TabHolder
 		}), {
 			AddThemeObject(SetProps(MakeElement("Image", TabConfig.Icon), {
