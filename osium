@@ -125,6 +125,8 @@ local destructionHooks = {}
             BorderColor3 = Colors.Gray.Stroke,
             Size = UDim2.new(0, 612, 0, 42),
             BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+            Active = true,          -- ⬅️ tambahin ini
+            Draggable = true        -- ⬅️ tambahin ini
         })
 
         CreateInstance("UICorner", top, {
@@ -190,7 +192,7 @@ local destructionHooks = {}
         end)
 
         pcall(function ()
-            local IsDragging = true
+            local IsDragging = false
             local dragInput
             local StartingPoint
             local oldPos
