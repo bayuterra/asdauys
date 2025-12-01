@@ -666,14 +666,14 @@ function OrionLib:MakeWindow(WindowConfig)
 
 	local function update(input)
 		local delta = input.Position - dragStart
-		MainWindow.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+		WindowName.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
 	end
 
 	local function onDragStart(input)
 		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
 			dragging_ = true
 			dragStart = input.Position
-			startPos = MainWindow.Position
+			startPos = WindowName.Position
 
 			input.Changed:Connect(function()
 				if input.UserInputState == Enum.UserInputState.End then
@@ -690,13 +690,13 @@ function OrionLib:MakeWindow(WindowConfig)
 	end
 
 
-	MainWindow.InputBegan:Connect(function(input)
+	WindowName.InputBegan:Connect(function(input)
         if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
             onDragStart(input)
         end
     end)
 
-    MainWindow.InputChanged:Connect(onDragUpdate)
+    WindowName.InputChanged:Connect(onDragUpdate)
 
     UserInputService.InputChanged:Connect(function(input)
         if input == dragInput and dragging_ then
@@ -704,7 +704,7 @@ function OrionLib:MakeWindow(WindowConfig)
         end
     end)
 
-    MainWindow.InputEnded:Connect(function(input)
+    WindowName.InputEnded:Connect(function(input)
         if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
             dragging_ = false
         end
