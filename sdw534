@@ -536,21 +536,13 @@ function OrionLib:MakeWindow(WindowConfig)
 			Name = "Ico"
 		}), "Text")
 	})
-    local DragButton = AddThemeObject(SetChildren(SetProps(MakeElement("ImageButton"), {
-        Image = "rbxassetid://90336395745819",
-        Size = UDim2.new(0, 20, 0, 20),
-        Position = UDim2.new(1, -120, 0, 15),
+
+	local DragPoint = SetProps(MakeElement("TFrame"), {
+        Size = UDim2.new(1, 0, 0, 50),
         BackgroundTransparency = 1,
-        Name = "DragButton"
-    }), {}), "Text")
-
-
-	-- local DragPoint = SetProps(MakeElement("TFrame"), {
-    --     Size = UDim2.new(1, 0, 0, 50),
-    --     BackgroundTransparency = 1,
-    --     Active = true,
-    --     ZIndex = 9999, -- penting!
-    -- })
+        Active = true,
+        ZIndex = 9999, -- penting!
+    })
 
 	local WindowStuff = AddThemeObject(SetChildren(SetProps(MakeElement("RoundFrame", Color3.fromRGB(255, 255, 255), 0, 10), {
 		Size = UDim2.new(0, 150, 1, -50),
@@ -651,7 +643,6 @@ function OrionLib:MakeWindow(WindowConfig)
 					Size = UDim2.new(0, 1, 1, 0),
 					Position = UDim2.new(0.5, 0, 0, 0)
 				}), "Stroke"), 
-                DragButton,
 				CloseBtn,
 				MinimizeBtn
 			}), "Second"), 
@@ -668,47 +659,57 @@ function OrionLib:MakeWindow(WindowConfig)
 		WindowIcon.Parent = MainWindow.TopBar
 	end	
 --drag
--- 🪄 Fungsi drag khusus DragButton
-do
-	local dragging = false
-	local dragInput, dragStart, startPos
+	local dragging_ = false
+	local dragInput
+	local dragStart
+	local startPos
 
 	local function update(input)
 		local delta = input.Position - dragStart
-		MainWindow.Position = UDim2.new(
-			startPos.X.Scale, startPos.X.Offset + delta.X,
-			startPos.Y.Scale, startPos.Y.Offset + delta.Y
-		)
+		MainWindow.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
 	end
 
-	DragButton.InputBegan:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseButton1
-		or input.UserInputType == Enum.UserInputType.Touch then
-			dragging = true
+	local function onDragStart(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging_ = true
 			dragStart = input.Position
 			startPos = MainWindow.Position
 
 			input.Changed:Connect(function()
 				if input.UserInputState == Enum.UserInputState.End then
-					dragging = false
+					dragging_ = false
 				end
 			end)
 		end
-	end)
+	end
 
-	DragButton.InputChanged:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseMovement
-		or input.UserInputType == Enum.UserInputType.Touch then
+	local function onDragUpdate(input)
+		if dragging_ and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
 			dragInput = input
 		end
-	end)
+	end
 
-	UserInputService.InputChanged:Connect(function(input)
-		if input == dragInput and dragging then
-			update(input)
-		end
-	end)
-end
+
+	MainWindow.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            onDragStart(input)
+        end
+    end)
+
+    MainWindow.InputChanged:Connect(onDragUpdate)
+
+    UserInputService.InputChanged:Connect(function(input)
+        if input == dragInput and dragging_ then
+            update(input)
+        end
+    end)
+
+    MainWindow.InputEnded:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragging_ = false
+        end
+    end)
+
 
 	AddConnection(CloseBtn.MouseButton1Up, function()
 		MainWindow.Visible = false
