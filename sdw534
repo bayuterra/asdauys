@@ -647,6 +647,7 @@ function OrionLib:MakeWindow(WindowConfig)
 				MinimizeBtn
 			}), "Second"), 
 		}),
+		DragPoint,
 		WindowStuff
 	}), "Main")
 
@@ -659,6 +660,7 @@ function OrionLib:MakeWindow(WindowConfig)
 		WindowIcon.Parent = MainWindow.TopBar
 	end	
 --drag
+do
 	local dragging_ = false
 	local dragInput
 	local dragStart
@@ -710,6 +712,7 @@ function OrionLib:MakeWindow(WindowConfig)
         end
     end)
 
+end
 
 	AddConnection(CloseBtn.MouseButton1Up, function()
 		MainWindow.Visible = false
