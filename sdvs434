@@ -29,6 +29,13 @@ local OrionLib = {
 
 local Icons = {}
 
+local function GetIcon(IconName)
+	if Icons[IconName] ~= nil then
+		return Icons[IconName]
+	else
+		return nil
+	end
+end   
 
 local Orion = Instance.new("ScreenGui")
 Orion.Name = "Orion"
@@ -547,8 +554,7 @@ function OrionLib:MakeWindow(WindowConfig)
 		-- SetChildren(SetProps(MakeElement("TFrame"), {
 		-- 	Size = UDim2.new(1, 0, 0, 50),
 		-- 	Position = UDim2.new(0, 0, 1, -50)
-		-- }), 
-        -- {
+		-- }), {
 		-- 	AddThemeObject(SetProps(MakeElement("Frame"), {
 		-- 		Size = UDim2.new(1, 0, 0, 1)
 		-- 	}), "Stroke"), 
@@ -673,7 +679,7 @@ function OrionLib:MakeWindow(WindowConfig)
 			ImageTransparency = 1
 		})
 
-		local LoadSequenceText = SetProps(MakeElement("Label", WindowConfig.IntroText, 16), {
+		local LoadSequenceText = SetProps(MakeElement("Label", WindowConfig.IntroText, 22), {
 			Parent = Orion,
 			Size = UDim2.new(1, 0, 1, 0),
 			AnchorPoint = Vector2.new(0.5, 0.5),
