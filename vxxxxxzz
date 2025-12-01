@@ -712,87 +712,25 @@ function OrionLib:MakeWindow(WindowConfig)
 		TabConfig.Icon = TabConfig.Icon or ""
 		TabConfig.PremiumOnly = TabConfig.PremiumOnly or false
 
-		-- local TabFrame = SetChildren(SetProps(MakeElement("Button"), {
-		-- 	Size = UDim2.new(1, 0, 0, 40),
-		-- 	Parent = TabHolder
-		-- }), {
-		-- 	AddThemeObject(SetProps(MakeElement("Image", TabConfig.Icon), {
-		-- 		AnchorPoint = Vector2.new(0, 0.5),
-		-- 		Size = UDim2.new(0, 20, 0, 20),
-		-- 		Position = UDim2.new(0, 10, 0.5, 0),
-		-- 		ImageTransparency = 0.4,
-		-- 		Name = "Ico"
-		-- 	}), "Text"),
-		-- 	AddThemeObject(SetProps(MakeElement("Label", TabConfig.Name, 16), {
-		-- 		Size = UDim2.new(1, -35, 1, 0),
-		-- 		Position = UDim2.new(0, 35, 0, 0),
-		-- 		Font = Enum.Font.GothamSemibold,
-		-- 		TextTransparency = 0.4,
-		-- 		Name = "Title"
-		-- 	}), "Text")
-		-- })
-
-        local TabFrame = AddThemeObject(SetChildren(SetProps(MakeElement("RoundFrame", Color3.fromRGB(40, 40, 40), 0, 6), {
-            Size = UDim2.new(1, -8, 0, 42),
-            Position = UDim2.new(0, 4, 0, 0),
-            BackgroundTransparency = 0.25,
-            Parent = TabHolder,
-            AutoButtonColor = false,
-            ClipsDescendants = true
-        }), {
-            AddThemeObject(MakeElement("Stroke"), "Stroke"),
-            AddThemeObject(SetProps(MakeElement("Image", TabConfig.Icon), {
-                AnchorPoint = Vector2.new(0, 0.5),
-                Size = UDim2.new(0, 24, 0, 24),
-                Position = UDim2.new(0, 12, 0.5, 0),
-                ImageTransparency = 0.4,
-                Name = "Ico"
-            }), "Text"),
-            AddThemeObject(SetProps(MakeElement("Label", TabConfig.Name, 16), {
-                Size = UDim2.new(1, -60, 1, 0),
-                Position = UDim2.new(0, 44, 0, 0),
-                Font = Enum.Font.GothamMedium,
-                TextTransparency = 0.4,
-                Name = "Title"
-            }), "Text"),
-        }), "Second")
-
-        -- ✨ Hover & Active Animation
-        TabFrame.MouseEnter:Connect(function()
-            TweenService:Create(TabFrame, TweenInfo.new(0.25, Enum.EasingStyle.Quint), {BackgroundTransparency = 0.1}):Play()
-            TweenService:Create(TabFrame.Ico, TweenInfo.new(0.25, Enum.EasingStyle.Quint), {ImageTransparency = 0.2}):Play()
-            TweenService:Create(TabFrame.Title, TweenInfo.new(0.25, Enum.EasingStyle.Quint), {TextTransparency = 0.2}):Play()
-        end)
-
-        TabFrame.MouseLeave:Connect(function()
-            if not TabFrame.ActiveTab then
-                TweenService:Create(TabFrame, TweenInfo.new(0.25, Enum.EasingStyle.Quint), {BackgroundTransparency = 0.25}):Play()
-                TweenService:Create(TabFrame.Ico, TweenInfo.new(0.25, Enum.EasingStyle.Quint), {ImageTransparency = 0.4}):Play()
-                TweenService:Create(TabFrame.Title, TweenInfo.new(0.25, Enum.EasingStyle.Quint), {TextTransparency = 0.4}):Play()
-            end
-        end)
-
-        -- 🟦 Update efek aktif
-        function TabFrame:SetActive(state)
-            TabFrame.ActiveTab = state
-            if state then
-                TweenService:Create(TabFrame, TweenInfo.new(0.3, Enum.EasingStyle.Quint), {BackgroundTransparency = 0}):Play()
-                TweenService:Create(TabFrame.Ico, TweenInfo.new(0.3, Enum.EasingStyle.Quint), {ImageTransparency = 0}):Play()
-                TweenService:Create(TabFrame.Title, TweenInfo.new(0.3, Enum.EasingStyle.Quint), {
-                    TextTransparency = 0,
-                    TextSize = 17,
-                    Font = Enum.Font.GothamBold
-                }):Play()
-            else
-                TweenService:Create(TabFrame, TweenInfo.new(0.3, Enum.EasingStyle.Quint), {BackgroundTransparency = 0.25}):Play()
-                TweenService:Create(TabFrame.Ico, TweenInfo.new(0.3, Enum.EasingStyle.Quint), {ImageTransparency = 0.4}):Play()
-                TweenService:Create(TabFrame.Title, TweenInfo.new(0.3, Enum.EasingStyle.Quint), {
-                    TextTransparency = 0.4,
-                    TextSize = 16,
-                    Font = Enum.Font.GothamMedium
-                }):Play()
-            end
-        end
+		local TabFrame = SetChildren(SetProps(MakeElement("Button"), {
+			Size = UDim2.new(1, 0, 0, 40),
+			Parent = TabHolder
+		}), {
+			AddThemeObject(SetProps(MakeElement("Image", TabConfig.Icon), {
+				AnchorPoint = Vector2.new(0, 0.5),
+				Size = UDim2.new(0, 20, 0, 20),
+				Position = UDim2.new(0, 10, 0.5, 0),
+				ImageTransparency = 0.4,
+				Name = "Ico"
+			}), "Text"),
+			AddThemeObject(SetProps(MakeElement("Label", TabConfig.Name, 16), {
+				Size = UDim2.new(1, -35, 1, 0),
+				Position = UDim2.new(0, 35, 0, 0),
+				Font = Enum.Font.GothamSemibold,
+				TextTransparency = 0.4,
+				Name = "Title"
+			}), "Text")
+		})
 
 		if GetIcon(TabConfig.Icon) ~= nil then
 			TabFrame.Ico.Image = GetIcon(TabConfig.Icon)
