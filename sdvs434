@@ -27,6 +27,8 @@ local OrionLib = {
 	SaveCfg = false
 }
 
+local Icons = {}
+
 
 local Orion = Instance.new("ScreenGui")
 Orion.Name = "Orion"
