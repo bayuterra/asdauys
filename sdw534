@@ -97,18 +97,18 @@ task.spawn(function()
 	end
 end)
 
-local function AddDraggingFunctionality(base, frame)
+function AddDraggingFunctionality(base, frame)
 	local dragging = false
 	local dragInput, dragStart, startPos
 
 	local function update(input)
-	local delta = input.Position - dragStart
-	local goal = UDim2.new(
-		startPos.X.Scale, startPos.X.Offset + delta.X,
-		startPos.Y.Scale, startPos.Y.Offset + delta.Y
-	)
-	TweenService:Create(frame, TweenInfo.new(0.05, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), {Position = goal}):Play()
-end
+        local delta = input.Position - dragStart
+        local goal = UDim2.new(
+            startPos.X.Scale, startPos.X.Offset + delta.X,
+            startPos.Y.Scale, startPos.Y.Offset + delta.Y
+        )
+        TweenService:Create(frame, TweenInfo.new(0.05, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), {Position = goal}):Play()
+    end
 
 	base.InputBegan:Connect(function(input)
 		if input.UserInputType == Enum.UserInputType.MouseButton1
@@ -538,8 +538,10 @@ function OrionLib:MakeWindow(WindowConfig)
 	})
 
 	local DragPoint = SetProps(MakeElement("TFrame"), {
-		Size = UDim2.new(1, 0, 0, 50)
-	})
+        Size = UDim2.new(1, 0, 0, 50),
+        BackgroundTransparency = 1, -- biar tetap transparan
+        Active = true               -- biar bisa nangkep input mouse/touch
+    })
 
 	local WindowStuff = AddThemeObject(SetChildren(SetProps(MakeElement("RoundFrame", Color3.fromRGB(255, 255, 255), 0, 10), {
 		Size = UDim2.new(0, 150, 1, -50),
