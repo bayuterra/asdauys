@@ -190,7 +190,7 @@ local destructionHooks = {}
         end)
 
         pcall(function ()
-            local IsDragging = false
+            local IsDragging = true
             local dragInput
             local StartingPoint
             local oldPos
