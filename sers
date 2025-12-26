@@ -451,7 +451,7 @@
         ResizeHandle.ZIndex = 10
         ResizeHandle.Parent = MainFrame
         
-        makeResizable(ResizeHandle, MainFrame, Vector2.new(400, 300))
+        makeResizable(ResizeHandle, MainFrame, Vector2.new(400, 250))
 
         local Tabs = {}
         local currentTab = nil
