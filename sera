@@ -1953,11 +1953,7 @@
                     if callback then callback(InputBox.Text) end
                 end)
                 
-                return {
-                    Frame = InputFrame,
-                    SetText = SetText,
-                    Input = InputBox
-                }
+                return InputFrame
             end
 
             function PageFunctions:ColorPicker(text, default, callback, flag)
@@ -2476,11 +2472,7 @@
                     TweenService:Create(TextStroke, TweenInfo.new(0.2), {Transparency = 0}):Play()
                 end)
                 
-                return {
-                    Frame = InputFrame,
-                    SetText = SetText,
-                    Input = InputBox
-                }
+                return InputFrame
             end
 
             return PageFunctions
